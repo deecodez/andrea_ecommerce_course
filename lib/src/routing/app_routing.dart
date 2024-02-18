@@ -32,11 +32,11 @@ final goRouterProvider = Provider<GoRouter>((ref) {
     redirect: (context, state) {
       final isLoggedIn = authRepository.currentUser != null;
       if (isLoggedIn) {
-        if (state.location == '/signIn') {
+        if (state.fullPath == '/signIn') {
           return '/';
         }
       } else {
-        if (state.location == '/account' || state.location == '/orders') {
+        if (state.fullPath == '/account' || state.fullPath == '/orders') {
           return '/';
         }
       }
@@ -53,7 +53,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
             path: 'product/:id',
             name: AppRoute.product.name,
             builder: (context, state) {
-              final productId = state.params['id']!;
+              final productId = state.pathParameters['id']!;
               return ProductScreen(productId: productId);
             },
             routes: [
@@ -61,7 +61,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                 path: 'review',
                 name: AppRoute.leaveReview.name,
                 pageBuilder: (context, state) {
-                  final productId = state.params['id']!;
+                  final productId = state.pathParameters['id']!;
                   return MaterialPage(
                     fullscreenDialog: true,
                     child: LeaveReviewScreen(productId: productId),

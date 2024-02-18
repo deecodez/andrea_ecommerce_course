@@ -12,7 +12,8 @@ void main() async {
   // * https://docs.flutter.dev/testing/errors
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
+    //TODO:
+    // GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
     // * Entry point of the app
     runApp(const ProviderScope(child: MyApp()));
 

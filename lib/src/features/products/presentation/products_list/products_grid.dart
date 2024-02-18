@@ -25,7 +25,7 @@ class ProductsGrid extends ConsumerWidget {
           ? Center(
               child: Text(
                 'No products found'.hardcoded,
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             )
           : ProductsLayoutGrid(
@@ -36,7 +36,7 @@ class ProductsGrid extends ConsumerWidget {
                   product: product,
                   onPressed: () => context.goNamed(
                     AppRoute.product.name,
-                    params: {'id': product.id},
+                    pathParameters: {'id': product.id},
                   ),
                 );
               },
